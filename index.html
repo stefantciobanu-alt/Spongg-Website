@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spongg's WEBSITE</title>
+<style>
+:root {
+    --primary-red: #FF0000;
+    --primary-purple: #7F00FF;
+    --dark-purple: #1a0033;
+    --white: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: var(--white);
+    text-align: center;
+    overflow-x: hidden;
+    background: linear-gradient(to bottom, #1a0033, #000000);
+    position: relative;
+}
+
+/* Header */
+header {
+    padding: 50px 20px;
+    position: relative;
+    z-index: 2;
+}
+header h1 {
+    margin: 0;
+    font-size: 3em;
+    color: var(--white);
+    text-shadow: 0 0 20px var(--primary-purple);
+    display: inline-block;
+    position: relative;
+}
+#livestream-indicator {
+    font-size: 0.35em;
+    background-color: rgba(255,0,0,0.85);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 12px;
+    margin-left: 15px;
+    vertical-align: middle;
+    box-shadow: 0 0 10px rgba(255,0,0,0.7);
+    cursor: pointer;
+    transition: 0.3s;
+    user-select: none;
+}
+#livestream-indicator:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255,0,0,0.9);
+}
+
+/* Feature boxes */
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 2;
+}
+.box {
+    background: linear-gradient(145deg, #4b0082, #7F00FF);
+    border-radius: 10px;
+    padding: 30px;
+    width: 250px;
+    color: var(--white);
+    text-align: center;
+    box-shadow: 0 0 20px var(--primary-purple);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+.box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 40px var(--primary-purple);
+}
+.box h3 { margin-bottom: 15px; }
+
+/* Red clickable link */
+.red-link {
+    color: #FF0000; /* solid red */
+    text-decoration: none;
+    font-weight: bold;
+}
+.red-link:hover {
+    color: #ff5555;
+    text-decoration: underline;
+}
+
+/* Big category boxes */
+.category-box {
+    background: linear-gradient(145deg, #4b0082, #7F00FF);
+    border-radius: 10px;
+    padding: 50px 30px;
+    margin: 30px auto;
+    max-width: 1000px;
+    min-height: 200px;
+    color: var(--white);
+    text-align: left;
+    box-shadow: 0 0 20px var(--primary-purple);
+}
+
+/* Latest videos - side by side */
+section#videos {
+    padding: 40px 20px;
+}
+.video-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.video-container iframe {
+    width: 45%;
+    aspect-ratio: 16/9;
+    border: 2px solid var(--primary-purple);
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--primary-purple);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-purple);
+    color: var(--white);
+    padding: 20px;
+}
+footer a {
+    color: var(--primary-red);
+    font-weight: bold;
+    text-decoration: none;
+}
+footer a:hover { text-decoration: underline; }
+
+/* Particle canvases */
+#particle-canvas, #pumpkin-particles {
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Pumpkin icon */
+#pumpkin {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    z-index: 3;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<!-- Pumpkin icon -->
+<img src="https://media.istockphoto.com/id/1163660626/vector/pumpkin-isolated-on-white-background-cartoon-orange-squash-for-halloween-thanksgiving-autumn.jpg?s=612x612&w=0&k=20&c=4sduAwNhCSuARU5mQqFotFs0lDlgdotNOAafCnvWCac=" id="pumpkin" alt="Clickable pumpkin icon">
+
+<!-- Particle canvases -->
+<canvas id="particle-canvas"></canvas>
+<canvas id="pumpkin-particles"></canvas>
+
+<header>
+  <h1>
+    Welcome to Spongg's YouTube Channel! 
+    <span id="livestream-indicator" onclick="window.location.href='livestreams.html'">🔴 ACTIVE LIVESTREAMS</span>
+  </h1>
+</header>
+
+<section class="features">
+  <div class="box">
+    <h3>Channel</h3>
+    <p>Spongg's main channel can be found <a href="https://www.youtube.com/@YTspongg" target="_blank" class="red-link">here</a></p>
+    <p>Spongg's second channel can be found <a href="https://www.youtube.com/@SponggLive" target="_blank" class="red-link">here</a></p>
+    <p>Not to mention getting mod is easy you just have to be active and chat in livestreams.
+  </div>
+  <div class="box">
+    <h3>Community Growth</h3>
+    <p>For a pretty small content creator (Spongg) the community is growing really fast averaging about 50 subscribers a stream! We are currently standing at 1.5k subs.</p>
+  </div>
+  <div class="box">
+    <h3>Daily livestreams</h3>
+    <p>Join spongg and his community in very fun daily livestreams! (spongg is currently on a yt strike so he cannot stream)</p>
+  </div>
+</section>
+
+<div class="category-box">
+  <h2>FUN THINGS</h2>
+  <p>- Fun ink game livestreams where we do challanges, private server matches with "PRIVATE SERVER+" which unlocks fun commands.</p>
+  <p>- Playing whatever games the audicity wants</p>
+  <p>- Fun minigames in the live chat (e.g !gamble all - which gambles your sponggies coins)</p>
+</div>
+
+<div class="category-box">
+  <h2>GIVEAWAYS</h2>
+  <p>Spongg or community members host giveaways really often the prize being a bunch of robux or other stuff</p>
+  <p> You can win a lot of robux by just entering the giveaways</p>
+  <p> However to enter there is a requirement: You must be subscribed!</p>
+  <p> GOODLUCK on winning!</p>
+</div>
+
+<div class="category-box">
+  <h2>TOURNAMENTS</h2>
+  <p>- Just like the giveways tournaments are being hosted often.</p>
+  <p> they often happen in the game "Ink game" and have a HUGE robux prize</p>
+  <p> the robux prize is somewhat between 400 ( minimum) up to even 10k.</p>
+  <p> We also do practice matches before the tournament so everyone has time to prepare.</p>
+</div>
+
+<div class="category-box">
+  <h2>DISCORD SERVER</h2>
+  <p>In the discord server, basically everything happens</p>
+  <p> - giveaways are hosted here</p>
+  <p> - tournaments are hosted here</p>
+  <p> - we have a spongg  chatbot which you can talk with ( hes kinda dumb)</p>
+  <p> - spongg BOT with different commands like : /fish , /work etc.</p>
+  <p> - mod applications being hosted often so you get the chance to be a moderator</p>
+<p>JOIN THE DISCORD SERVER, CAN BE FOUND AT <a href="https://discord.com/invite/6rYDkUETN9" target="_blank" class="red-link">this thing lol</a></p>
+</div>
+
+<section id="videos">
+  <h2>Latest Videos</h2>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/--sfQnsbpuI" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/cI0jT00KETc&t=58s" allowfullscreen></iframe>
+  </div>
+</section>
+
+<footer>
+Follow on YouTube: <a href="https://www.youtube.com/channel/[CHANNEL_ID]" target="_blank">Subscribe!</a>
+</footer>
+
+<script>
+// Particle animation (red/white sparkles)
+const canvas = document.getElementById('particle-canvas');
+const ctx = canvas.getContext('2d');
+let width = canvas.width = window.innerWidth;
+let height = canvas.height = window.innerHeight;
+
+const particles = [];
+for(let i=0;i<150;i++){
+    particles.push({
+        x: Math.random()*width,
+        y: Math.random()*height,
+        r: Math.random()*2+1,
+        speed: Math.random()*2+1,
+        color: Math.random()>0.5?'#FF0000':'#FFFFFF'
+    });
+}
+
+function animate(){
+    ctx.clearRect(0,0,width,height);
+    particles.forEach(p=>{
+        ctx.beginPath();
+        ctx.fillStyle=p.color;
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fill();
+        p.y += p.speed;
+        if(p.y>height){ p.y=-10; p.x=Math.random()*width;}
+    });
+    requestAnimationFrame(animate);
+}
+animate();
+
+// Pumpkin click particles
+const pumpkinCanvas = document.getElementById('pumpkin-particles');
+const pCtx = pumpkinCanvas.getContext('2d');
+let pWidth = pumpkinCanvas.width = window.innerWidth;
+let pHeight = pumpkinCanvas.height = window.innerHeight;
+let pumpkinParticles = [];
+document.getElementById('pumpkin').addEventListener('click', ()=>{
+    for(let i=0;i<100;i++){
+        pumpkinParticles.push({
+            x: window.innerWidth - 50,
+            y: 50,
+            vx: (Math.random()-0.5)*6,
+            vy: Math.random()*-6,
+            r: Math.random()*4+2,
+            life: 100
+        });
+    }
+});
+function pumpkinAnimate(){
+    pCtx.clearRect(0,0,pWidth,pHeight);
+    pumpkinParticles.forEach((p,i)=>{
+        pCtx.beginPath();
+        pCtx.fillStyle='orange';
+        pCtx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        pCtx.fill();
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.1;
+        p.life--;
+        if(p.life<=0) pumpkinParticles.splice(i,1);
+    });
+    requestAnimationFrame(pumpkinAnimate);
+}
+pumpkinAnimate();
+
+// Resize canvases
+window.addEventListener('resize', ()=>{
+    width=canvas.width=window.innerWidth;
+    height=canvas.height=window.innerHeight;
+    pWidth=pumpkinCanvas.width=window.innerWidth;
+    pHeight=pumpkinCanvas.height=window.innerHeight;
+});
+</script>
+
+</body>
+</html>
